@@ -59,7 +59,22 @@ def risolvi_sistema_lineare(A: list, b: list) -> np.ndarray:
 
 def correlazione_matrici(m1: list, m2: list) -> np.ndarray:
     """Sub-task 4: Correlazione tra Matrici 2x2."""
-    pass
+    a = np.array(m1)
+    b = np.array(m2)
+
+    if a.shape != (2, 2) or b.shape != (2, 2):
+        raise ValueError("Entrambe le matrici devono essere 2x2")
+
+    a_flat = a.flatten()
+    b_flat = b.flatten()
+
+    corr_matrix = np.corrcoef(a_flat, b_flat)
+
+    return corr_matrix
+
+
+
+
 
 def operazioni_elemento_per_elemento(v1: list) -> tuple:
     """Sub-task 5: Restituisce (seno, coseno, arcoseno, arcocoseno) elemento per elemento calcolati sul primo array."""
