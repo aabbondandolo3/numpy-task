@@ -17,7 +17,16 @@ def prodotto_scalare(v1: list, v2: list) -> float:
 
 def rango_matrice(m: list) -> int:
     """Sub-task 2: Calcola il rango di una matrice."""
-    pass
+
+    matrice = np.array(m)
+
+    if matrice.ndim != 2:
+        raise ValueError("L'input deve essere una matrice (lista di liste)")
+
+
+    return int(np.linalg.matrix_rank(matrice))
+
+
 
 def risolvi_sistema_lineare(A: list, b: list) -> np.ndarray:
     """Sub-task 3: Risolvere un Sistema Lineare."""
@@ -38,6 +47,10 @@ def main():
     print("Sub-task 3:", risolvi_sistema_lineare([[2, 1], [1, 3]], [5, 7]))
     print("Sub-task 4:", correlazione_matrici([[1, 2], [3, 4]], [[2, 4], [6, 8]]))
     print("Sub-task 5:", operazioni_elemento_per_elemento([0, 0.5, 1, -0.5]))
+
+
+
+
 
 if __name__ == "__main__":
     main()
