@@ -30,7 +30,32 @@ def rango_matrice(m: list) -> int:
 
 def risolvi_sistema_lineare(A: list, b: list) -> np.ndarray:
     """Sub-task 3: Risolvere un Sistema Lineare."""
-    pass
+    matrice = np.array(A)
+    termini_noti = np.array(b)
+
+
+    if matrice.ndim != 2:
+        raise ValueError("A deve essere una lista di liste (matrice)")
+
+
+    if termini_noti.ndim != 1:
+        raise ValueError("b deve essere una lista (vettore)")
+
+
+    if matrice.shape[0] != matrice.shape[1]:
+            raise ValueError("La matrice A deve essere quadrata")
+
+
+    if matrice.shape[0] != termini_noti.shape[0]:
+            raise ValueError("Dimensioni incompatibili tra A e b")
+
+
+    soluzione = np.linalg.solve(matrice, termini_noti)
+
+    return soluzione
+
+
+
 
 def correlazione_matrici(m1: list, m2: list) -> np.ndarray:
     """Sub-task 4: Correlazione tra Matrici 2x2."""
