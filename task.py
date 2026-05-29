@@ -4,7 +4,16 @@ import numpy as np
 
 def prodotto_scalare(v1: list, v2: list) -> float:
     """Sub-task 1: Prodotto Scalare."""
-    pass
+
+    a = np.array(v1)
+    b = np.array(v2)
+
+
+    if a.shape != b.shape:
+        raise ValueError("I vettori devono avere la stessa dimensione")
+
+
+    return float(np.dot(a, b))
 
 def rango_matrice(m: list) -> int:
     """Sub-task 2: Calcola il rango di una matrice."""
